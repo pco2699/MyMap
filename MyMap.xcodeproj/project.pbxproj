@@ -12,6 +12,8 @@
 		731BB8591ED917BE0098C5D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731BB8571ED917BE0098C5D4 /* Main.storyboard */; };
 		731BB85B1ED917BE0098C5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731BB85A1ED917BE0098C5D4 /* Assets.xcassets */; };
 		731BB85E1ED917BE0098C5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731BB85C1ED917BE0098C5D4 /* LaunchScreen.storyboard */; };
+		734237DC1EDC50EB000E7338 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734237DB1EDC50EB000E7338 /* SwiftyJSON.framework */; };
+		734237DE1EDC50FB000E7338 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734237DD1EDC50FB000E7338 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		731BB85A1ED917BE0098C5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		731BB85D1ED917BE0098C5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		731BB85F1ED917BE0098C5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		734237DB1EDC50EB000E7338 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		734237DD1EDC50FB000E7338 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				734237DE1EDC50FB000E7338 /* Alamofire.framework in Frameworks */,
+				734237DC1EDC50EB000E7338 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				731BB8521ED917BE0098C5D4 /* MyMap */,
 				731BB8511ED917BE0098C5D4 /* Products */,
+				734237DA1EDC50EB000E7338 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,15 @@
 			path = MyMap;
 			sourceTree = "<group>";
 		};
+		734237DA1EDC50EB000E7338 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				734237DD1EDC50FB000E7338 /* Alamofire.framework */,
+				734237DB1EDC50EB000E7338 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +90,7 @@
 				731BB84C1ED917BE0098C5D4 /* Sources */,
 				731BB84D1ED917BE0098C5D4 /* Frameworks */,
 				731BB84E1ED917BE0098C5D4 /* Resources */,
+				734237DF1EDC511A000E7338 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,6 +148,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		734237DF1EDC511A000E7338 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		731BB84C1ED917BE0098C5D4 /* Sources */ = {
@@ -264,6 +299,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AH8RM8374E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.pco2699.MyMap;
@@ -277,6 +316,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AH8RM8374E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.pco2699.MyMap;
@@ -304,6 +347,7 @@
 				731BB8641ED917BE0098C5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
